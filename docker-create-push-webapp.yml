@@ -4,16 +4,16 @@
 
   tasks:
   - name: building docker image using war file
-    command: docker build -t docker-webapp-image:latest .
+    command: docker build -t docker-nodejs-webapp:latest .
     args:
       chdir: /opt/docker
 
   - name: Create tag to image
-    command: docker tag docker-webapp-image surendranathks/docker-webapp-image
+    command: docker tag docker-nodejs-webapp surendranathks/docker-nodejs-webapp
 
   - name: Push image on to dockerhub
     command: docker push surendranathks/docker-webapp-image
 
   - name: Remove docker images from ansible server
-    command: docker rmi docker-webapp-image:latest surendranathks/docker-webapp-image
+    command: docker rmi docker-nodejs-webapp:latest surendranathks/docker-nodejs-webapp
     ignore_errors: yes
